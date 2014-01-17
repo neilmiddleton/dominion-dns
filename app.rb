@@ -5,14 +5,14 @@ require 'dominion'
 
 get '/base/:domain' do
   content_type :json
-
-  d = Dominion::DomainName.new params[:domain]
-  d.base.to_json
+  get_domain(params[:domain]).base.to_json
 end
 
 get '/tld/:domain' do
   content_type :json
+  get_domain(params[:domain]).tld.to_json
+end
 
-  d = Dominion::DomainName.new params[:domain]
-  d.tld.to_json
+def get_domain(domain)
+  Dominion::DomainName.new domain
 end
