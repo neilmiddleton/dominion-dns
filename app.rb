@@ -4,13 +4,13 @@ Bundler.require
 require 'dominion'
 
 get '/base/:domain' do
-  content_type :json
-  get_domain(params[:domain]).base.to_json
+  content_type :text
+  get_domain(params[:domain]).base
 end
 
 get '/tld/:domain' do
-  content_type :json
-  get_domain(params[:domain]).tld.to_json
+  content_type :text
+  get_domain(params[:domain]).tld
 end
 
 def get_domain(domain)
